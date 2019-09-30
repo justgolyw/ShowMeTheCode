@@ -37,7 +37,7 @@ def xls2xml(xls_name):
 def xls2xml_2(xls_name):
     wb = openpyxl.load_workbook(xls_name)
     # ws = wb.active
-    # ws = wb.get_active_sheet() # python3 中推荐使用 wb.active,wb.get_active_sheet()方法已过时
+    # ws = wb.get_active_sheet() # python3 中推荐使用 wb.active
     # ws = wb.get_sheet_by_name("example") # python3 推荐使用 wb[sheetname]
     # wb.active = 1  # 指定sheet的索引
     ws = wb.active
@@ -62,7 +62,8 @@ def xls2xml_2(xls_name):
     # root.append(comment)  # 添加注释
     child.text = jsonObj+"\n"
     tree = ElementTree(root) # 构造一棵树
-    tree.write('student.xml', encoding='utf8')
+    # tree.write('student.xml', encoding='utf8')
+    tree.write('student.xml', xml_declaration=True, encoding='utf-8')
 
 
 def txt2xml(file_name):
